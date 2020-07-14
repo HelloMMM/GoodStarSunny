@@ -18,6 +18,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         IQKeyboardManager.shared.enable = true
         
+        if let style = UserDefaults.standard.object(forKey: "appStyle") {
+            
+            appStyle = style as! Int
+        }
+        
         return true
     }
 }
