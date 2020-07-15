@@ -49,7 +49,9 @@ class TabbarVC: ESTabBarController, MoreVCDelegate {
         didHijackHandler = {
             [weak self] tabbarController, viewController, index in
             
+            let addVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "AddVC") as! AddVC
             
+            self?.present(addVC, animated: true, completion: nil)
         }
     }
     
@@ -58,7 +60,7 @@ class TabbarVC: ESTabBarController, MoreVCDelegate {
         let exampleIrregularityContentView = ExampleIrregularityContentView()
         exampleIrregularityContentView.imageView.hero.isEnabled = true
         exampleIrregularityContentView.imageView.hero.isEnabledForSubviews = true
-        exampleIrregularityContentView.imageView.hero.id = "ContentView"
+        exampleIrregularityContentView.imageView.hero.id = "AddVC"
         let basicContentView1 = ExampleIrregularityBasicContentView()
         basicContentView1.backdropColor = .clear
         basicContentView1.highlightBackdropColor = .clear
