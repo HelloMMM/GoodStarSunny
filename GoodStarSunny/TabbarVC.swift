@@ -12,11 +12,13 @@ import Hero
 
 var tabBarColor: UIColor!
 
-class TabbarVC: ESTabBarController {
+class TabbarVC: ESTabBarController, MoreVCDelegate {
 
     var mainVC: MainVC!
     var addVC: UIViewController!
     var moreVC: MoreVC!
+    var n1: UINavigationController!
+    var n2: UINavigationController!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,11 +29,12 @@ class TabbarVC: ESTabBarController {
         addVC.hero.isEnabled = true
         
         moreVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "MoreVC") as? MoreVC
+        moreVC.delegate = self
+        
+        n1 = UINavigationController(rootViewController: mainVC)
+        n2 = UINavigationController(rootViewController: moreVC)
         
         changeStyle(AppStyle(rawValue: appStyle)!)
-        
-        let n1 = UINavigationController(rootViewController: mainVC)
-        let n2 = UINavigationController(rootViewController: moreVC)
         
         viewControllers = [n1, addVC, n2]
         
@@ -82,6 +85,8 @@ class TabbarVC: ESTabBarController {
         }
         
         tabBar.backgroundColor = tabBarColor
+        n1.navigationBar.barTintColor = tabBarColor
+        n2.navigationBar.barTintColor = tabBarColor
         
         mainVC.view.backgroundColor = bgColor
         moreVC.view.backgroundColor = bgColor
@@ -97,4 +102,3 @@ class TabbarVC: ESTabBarController {
         moreVC.tabBarItem = ESTabBarItem(basicContentView2, title: "更多", image: UIImage(named: "more"), selectedImage: UIImage(named: "more"))
     }
 }
-
