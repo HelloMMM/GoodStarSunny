@@ -16,7 +16,7 @@ protocol MoreVCDelegate {
 class MoreVC: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
-    let titleAry = ["去除廣告", "恢復購買", "樣式", "當前版本"]
+    let titleAry = ["去除廣告", "恢復購買", "樣式", "當前版本", "客服與意見回饋"]
     let styleNames = ["天空☁️", "布丁🍮", "櫻花🌸"]
     var lastSelect = 0
     var delegate: MoreVCDelegate?
@@ -47,7 +47,7 @@ extension MoreVC: UITableViewDelegate, UITableViewDataSource {
         }
         
         cell.myTitle.text = titleAry[indexPath.row]
-        cell.myImageView.image = UIImage(named: "cell_\(indexPath.row)")
+        cell.myImageView.image = UIImage(named: "MoreCell_\(indexPath.row)")
         
         return cell
     }
@@ -61,6 +61,8 @@ extension MoreVC: UITableViewDelegate, UITableViewDataSource {
             let _ = IAPManager.shared.restorePurchase()
         case 2:
             changeStyle()
+        case 4:
+            showAppStore()
         default:
             break
         }
@@ -78,5 +80,12 @@ extension MoreVC: UITableViewDelegate, UITableViewDataSource {
         }
         
         customPickerView.lastSelect = lastSelect
+    }
+    
+    func showAppStore() {
+        
+        let urlString =  "itms-apps:itunes.apple.com/us/app/apple-store/id1520163103?mt=8&action=write-review"
+        let url = URL(string: urlString)!
+        UIApplication.shared.open(url, completionHandler: nil)
     }
 }

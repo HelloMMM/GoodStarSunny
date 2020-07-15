@@ -24,7 +24,7 @@
             </objects>
             <point key="canvasLocation" x="786" y="113"/>
         </scene>
-        <!--123-->
+        <!--Home-->
         <scene sceneID="eyh-Iy-fbh">
             <objects>
                 <viewController storyboardIdentifier="MainVC" id="dGe-82-GK1" customClass="MainVC" customModule="GoodStarSunny" customModuleProvider="target" sceneMemberID="viewController">
@@ -43,11 +43,26 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="Ypr-Qh-mHo"/>
                     </view>
-                    <navigationItem key="navigationItem" title="123" id="P75-00-oyg"/>
+                    <navigationItem key="navigationItem" title="Home" id="P75-00-oyg"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AnZ-MA-oJT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2256" y="113"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="m7n-E8-4PD">
+            <objects>
+                <viewController id="zG5-pE-qBg" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="hPz-xv-SwX">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="ywP-Y3-fHL"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="SEk-gd-w6U" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3003" y="112"/>
         </scene>
         <!--更多-->
         <scene sceneID="ki0-My-0Z8">
