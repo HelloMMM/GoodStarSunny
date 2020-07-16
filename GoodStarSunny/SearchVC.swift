@@ -7,15 +7,20 @@
 //
 
 import UIKit
+import MapKit
 
 class SearchVC: UIViewController {
 
     @IBOutlet weak var searchBar: UISearchBar!
+    @IBOutlet weak var tableView: UITableView!
+    var address: Array<Dictionary<String, Any>> = []
+    @IBOutlet weak var notFoundView: UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         searchBar.becomeFirstResponder()
+        tableView.tableFooterView = UIView()
     }
     
     @IBAction func cancel(_ sender: UIButton) {
@@ -27,10 +32,107 @@ class SearchVC: UIViewController {
     }
 }
 
+extension SearchVC: UITableViewDataSource, UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
+        return address.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "SearchCell", for: indexPath) as! SearchCell
+        
+        let addressName = address[indexPath.row]["addressName"] as! String
+        cell.addressName.text = addressName
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+//        let coordinate = address[indexPath.row]["coordinate"] as! Dictionary<String, Any>
+//        let lat = coordinate["lat"] as! CLLocationDegrees
+//        let lon = coordinate["lon"] as! CLLocationDegrees
+//        let url = "https://api.openweathermap.org/data/2.5/weather?lat=\(lat)&lon=\(lon)&apikey=5777a715d3b69dba2f196271765e6404&units=metric&lang=zh_tw"
+//
+//        AlamofireManager.shared.requestAPI(url: url, onSuccess: { (response) in
+//
+//            print(response)
+//        }) { (error) in
+//
+//        }
+    }
+}
+
 extension SearchVC: UISearchBarDelegate {
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         
         searchBar.resignFirstResponder()
+        
+        let geocoder = CLGeocoder()
+        
+        geocoder.geocodeAddressString(searchBar.text ?? "", completionHandler: {
+            (placemarks:[CLPlacemark]?, error:Error?) -> Void in
+
+            if error != nil {
+                self.showNotFoundView()
+                return
+            }
+            if let placemark = placemarks?[0]{
+                
+                let lat = placemark.location!.coordinate.latitude
+                let lon = placemark.location!.coordinate.longitude
+                let currentLocation = CLLocation(latitude: lat, longitude: lon)
+                
+                geocoder.reverseGeocodeLocation(currentLocation, completionHandler: {
+                (placemarks:[CLPlacemark]?, error:Error?) in
+                    
+                    if error != nil {
+                        
+                        self.showNotFoundView()
+                        return
+                    }
+                     
+                    if let placemark = placemarks?[0]{
+
+                        var add = ""
+
+                        add.append(placemark.country ?? "")
+                        add.append(placemark.administrativeArea ?? "")
+                        add.append(placemark.subAdministrativeArea ?? "")
+                        add.append(placemark.locality ?? "")
+
+                        let coordinate = ["lon": lon,
+                                          "lat": lat]
+                        
+                        let dic: Dictionary<String, Any> =
+                            ["addressName": add,
+                             "coordinate": coordinate,
+                             "area": placemark.locality ?? placemark.subAdministrativeArea ?? ""]
+                        
+                        self.address.removeAll()
+                        self.address.append(dic)
+                        self.tableView.reloadData()
+                        self.notFoundView.alpha = 0
+                    } else {
+                        self.showNotFoundView()
+                    }
+                })
+            } else {
+                self.showNotFoundView()
+            }
+        })
     }
+    
+    func showNotFoundView() {
+        
+        self.address.removeAll()
+        self.tableView.reloadData()
+        notFoundView.alpha = 1
+    }
+}
+
+extension SearchVC: CLLocationManagerDelegate {
+    
 }

@@ -36,6 +36,7 @@ class AddVC: UIViewController {
     
     @IBAction func cancel(_ sender: UIButton) {
         
+        view.endEditing(true)
         dismiss(animated: true, completion: nil)
     }
     
@@ -43,7 +44,10 @@ class AddVC: UIViewController {
         
         let searchVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SearchVC") as! SearchVC
         
-        present(searchVC, animated: true, completion: nil)
+        DispatchQueue.main.async {
+            self.present(searchVC, animated: true, completion: nil)
+        }
+        
     }
     
 }
