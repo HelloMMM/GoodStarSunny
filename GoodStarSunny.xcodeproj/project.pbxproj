@@ -11,6 +11,9 @@
 		DB14723D24BF061400B64B82 /* SearchVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB14723C24BF061400B64B82 /* SearchVC.swift */; };
 		DB14723F24C00A2E00B64B82 /* SearchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB14723E24C00A2E00B64B82 /* SearchCell.swift */; };
 		DB14724124C03D8600B64B82 /* AlamofireManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB14724024C03D8600B64B82 /* AlamofireManager.swift */; };
+		DB14724424C0438200B64B82 /* CoreData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DB14724224C0438200B64B82 /* CoreData.xcdatamodeld */; };
+		DB14724624C0453700B64B82 /* CoreDataConnect.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB14724524C0453700B64B82 /* CoreDataConnect.swift */; };
+		DB14724824C0598B00B64B82 /* MainCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB14724724C0598B00B64B82 /* MainCell.swift */; };
 		DB316A9924BD7B4900BE45FE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB316A9824BD7B4900BE45FE /* AppDelegate.swift */; };
 		DB316A9D24BD7B4900BE45FE /* TabbarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB316A9C24BD7B4900BE45FE /* TabbarVC.swift */; };
 		DB316AA024BD7B4900BE45FE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB316A9E24BD7B4900BE45FE /* Main.storyboard */; };
@@ -38,6 +41,9 @@
 		DB14723C24BF061400B64B82 /* SearchVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchVC.swift; sourceTree = "<group>"; };
 		DB14723E24C00A2E00B64B82 /* SearchCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCell.swift; sourceTree = "<group>"; };
 		DB14724024C03D8600B64B82 /* AlamofireManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlamofireManager.swift; sourceTree = "<group>"; };
+		DB14724324C0438200B64B82 /* CoreData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CoreData.xcdatamodel; sourceTree = "<group>"; };
+		DB14724524C0453700B64B82 /* CoreDataConnect.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataConnect.swift; sourceTree = "<group>"; };
+		DB14724724C0598B00B64B82 /* MainCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCell.swift; sourceTree = "<group>"; };
 		DB316A9524BD7B4900BE45FE /* GoodStarSunny.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GoodStarSunny.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB316A9824BD7B4900BE45FE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DB316A9C24BD7B4900BE45FE /* TabbarVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabbarVC.swift; sourceTree = "<group>"; };
@@ -115,18 +121,21 @@
 				DB316A9824BD7B4900BE45FE /* AppDelegate.swift */,
 				DB316A9C24BD7B4900BE45FE /* TabbarVC.swift */,
 				DB46CA3124BD80A100C2E4AD /* MainVC.swift */,
+				DB14724724C0598B00B64B82 /* MainCell.swift */,
 				DB14723A24BEFA3900B64B82 /* AddVC.swift */,
 				DB14723C24BF061400B64B82 /* SearchVC.swift */,
 				DB14723E24C00A2E00B64B82 /* SearchCell.swift */,
 				DB46CA3324BD80D500C2E4AD /* MoreVC.swift */,
 				DBC5918A24BDAB2600499BD8 /* MoreCell.swift */,
-				DB46CA4024BDA34700C2E4AD /* AppModel.swift */,
 				DBC5918C24BDAC0C00499BD8 /* Extensions */,
 				DB46CA3524BD832C00C2E4AD /* TabbarStyle */,
+				DB46CA4024BDA34700C2E4AD /* AppModel.swift */,
 				DB316A9E24BD7B4900BE45FE /* Main.storyboard */,
 				DB316AA124BD7B4A00BE45FE /* Assets.xcassets */,
 				DB316AA324BD7B4A00BE45FE /* LaunchScreen.storyboard */,
 				DB316AA624BD7B4A00BE45FE /* Info.plist */,
+				DB14724224C0438200B64B82 /* CoreData.xcdatamodeld */,
+				DB14724524C0453700B64B82 /* CoreDataConnect.swift */,
 			);
 			path = GoodStarSunny;
 			sourceTree = "<group>";
@@ -277,13 +286,16 @@
 				DB46CA4124BDA34700C2E4AD /* AppModel.swift in Sources */,
 				DB46CA3C24BD832C00C2E4AD /* ExampleBouncesContentView.swift in Sources */,
 				DB46CA3B24BD832C00C2E4AD /* ExampleBackgroundContentView.swift in Sources */,
+				DB14724624C0453700B64B82 /* CoreDataConnect.swift in Sources */,
 				DB46CA3224BD80A100C2E4AD /* MainVC.swift in Sources */,
 				DB14723B24BEFA3900B64B82 /* AddVC.swift in Sources */,
 				DB14724124C03D8600B64B82 /* AlamofireManager.swift in Sources */,
 				DBC5919424BDAC0C00499BD8 /* NVLoadingView.swift in Sources */,
 				DBC5919224BDAC0C00499BD8 /* CustomPickerView.swift in Sources */,
+				DB14724424C0438200B64B82 /* CoreData.xcdatamodeld in Sources */,
 				DBC5918B24BDAB2600499BD8 /* MoreCell.swift in Sources */,
 				DB316A9924BD7B4900BE45FE /* AppDelegate.swift in Sources */,
+				DB14724824C0598B00B64B82 /* MainCell.swift in Sources */,
 				DB14723F24C00A2E00B64B82 /* SearchCell.swift in Sources */,
 				DB46CA3E24BD832C00C2E4AD /* ExampleHighlightableContentView.swift in Sources */,
 				DB46CA3424BD80D500C2E4AD /* MoreVC.swift in Sources */,
@@ -494,6 +506,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		DB14724224C0438200B64B82 /* CoreData.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				DB14724324C0438200B64B82 /* CoreData.xcdatamodel */,
+			);
+			currentVersion = DB14724324C0438200B64B82 /* CoreData.xcdatamodel */;
+			path = CoreData.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = DB316A8D24BD7B4900BE45FE /* Project object */;
 }

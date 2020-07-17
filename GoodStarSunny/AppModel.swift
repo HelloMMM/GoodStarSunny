@@ -7,6 +7,8 @@
 //
 
 import Foundation
+import UIKit
+import CoreData
 
 enum AppStyle: Int {
     case blue
@@ -15,3 +17,5 @@ enum AppStyle: Int {
 }
 
 var appStyle = 0
+var areaData: Array<NSManagedObject> = []
+var isRemoveAD = false

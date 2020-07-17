@@ -9,12 +9,17 @@
 import UIKit
 import MapKit
 
+protocol SearchVCDelegate {
+    func chooseRegion(_ addressDic: Dictionary<String, Any>)
+}
+
 class SearchVC: UIViewController {
 
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var tableView: UITableView!
     var address: Array<Dictionary<String, Any>> = []
     @IBOutlet weak var notFoundView: UIView!
+    var delegate: SearchVCDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -50,17 +55,14 @@ extension SearchVC: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-//        let coordinate = address[indexPath.row]["coordinate"] as! Dictionary<String, Any>
-//        let lat = coordinate["lat"] as! CLLocationDegrees
-//        let lon = coordinate["lon"] as! CLLocationDegrees
-//        let url = "https://api.openweathermap.org/data/2.5/weather?lat=\(lat)&lon=\(lon)&apikey=5777a715d3b69dba2f196271765e6404&units=metric&lang=zh_tw"
-//
-//        AlamofireManager.shared.requestAPI(url: url, onSuccess: { (response) in
-//
-//            print(response)
-//        }) { (error) in
-//
-//        }
+        view.endEditing(true)
+        
+        
+        
+        dismiss(animated: true) {
+            
+            self.delegate?.chooseRegion(self.address[indexPath.row])
+        }
     }
 }
 
@@ -102,14 +104,13 @@ extension SearchVC: UISearchBarDelegate {
                         add.append(placemark.administrativeArea ?? "")
                         add.append(placemark.subAdministrativeArea ?? "")
                         add.append(placemark.locality ?? "")
-
-                        let coordinate = ["lon": lon,
-                                          "lat": lat]
                         
-                        let dic: Dictionary<String, Any> =
-                            ["addressName": add,
-                             "coordinate": coordinate,
-                             "area": placemark.locality ?? placemark.subAdministrativeArea ?? ""]
+                        
+                        
+                        let dic: Dictionary<String, Any> = ["addressName": add,
+                                                            "lon": "\(lon)",
+                                                            "lat": "\(lat)",
+                                                            "area": placemark.locality ?? placemark.subAdministrativeArea ?? ""]
                         
                         self.address.removeAll()
                         self.address.append(dic)
