@@ -96,8 +96,6 @@ class TabbarVC: ESTabBarController, MoreVCDelegate {
         basicContentView2.backdropColor = .clear
         basicContentView2.highlightBackdropColor = .clear
         
-        var bgColor: UIColor!
-        var basicColor: UIColor!
         var tabBarColor: UIColor!
         
         switch style {

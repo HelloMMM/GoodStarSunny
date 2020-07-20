@@ -14,6 +14,7 @@ protocol AddVCDelegate {
 
 class AddVC: UIViewController {
 
+    @IBOutlet weak var topView: UIView!
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var areaTextField: UITextField!
     var addressDic: Dictionary<String, Any> = [:]
@@ -22,6 +23,7 @@ class AddVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        topView.backgroundColor = basicColor
     }
     
     @IBAction func cancel(_ sender: UIButton) {
