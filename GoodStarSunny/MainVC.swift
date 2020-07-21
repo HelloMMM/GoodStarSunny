@@ -46,33 +46,31 @@ extension MainVC: UICollectionViewDelegate, UICollectionViewDataSource {
         
         let lat = areaData[indexPath.row].value(forKey: "lat") as! String
         let lon = areaData[indexPath.row].value(forKey: "lon") as! String
-        dic["lat"] = areaData[indexPath.row].value(forKey: "lat") as? String
-        dic["lon"] = areaData[indexPath.row].value(forKey: "lon") as? String
-        let url = "https://api.openweathermap.org/data/2.5/weather?lat=\(lat)&lon=\(lon)&apikey=5777a715d3b69dba2f196271765e6404&units=metric&lang=zh_tw"
+        let url = "https://api.openweathermap.org/data/2.5/onecall?lat=\(lat)&lon=\(lon)&apikey=5777a715d3b69dba2f196271765e6404&units=metric&lang=zh_tw"
         
         AlamofireManager.shared.requestAPI(url: url, onSuccess: { (response) in
-
-            dic["response"] = response
             
-            let weatherAry = response["weather"] as! Array<Any>
+            dic["response"] = response
+            self.toDayAreaData["\(indexPath.row)"] = dic
+            
+            let current = response["current"] as! Dictionary<String, Any>
+            let weatherAry = current["weather"] as! Array<Any>
             let weather = weatherAry[0] as! Dictionary<String, Any>
             cell.weather.text = weather["description"] as? String
-            
+
             let icon = weather["icon"] as! String
             cell.weatherImageView.image = UIImage(named: icon)
-            
-            let timezone = response["timezone"] as! Int
-            let timeZone = TimeZone(secondsFromGMT: timezone)
+
+            let timezone = response["timezone"] as! String
+            let timeZone = TimeZone(identifier: timezone)
             let dateFormatter = DateFormatter()
             dateFormatter.dateFormat = "HH：mm"
             dateFormatter.timeZone = timeZone
             cell.time.text = dateFormatter.string(from: Date())
-            
-            let main = response["main"] as! Dictionary<String, Any>
-            let temp = main["temp"] as! Double
+
+            let temp = (current["temp"] as! NSNumber).intValue
             cell.temp.text = "\(temp)º"
             
-            self.toDayAreaData["\(indexPath.row)"] = dic
         }) { (error) in
 
         }
@@ -84,7 +82,11 @@ extension MainVC: UICollectionViewDelegate, UICollectionViewDataSource {
         
         let weatherDetailsVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "WeatherDetailsVC") as! WeatherDetailsVC
         
-        weatherDetailsVC.areaData = toDayAreaData["\(indexPath.row)"] as? Dictionary<String, Any>
+        if let areaData = toDayAreaData["\(indexPath.row)"] as? Dictionary<String, Any> {
+            weatherDetailsVC.areaData = areaData
+        } else {
+            return
+        }
         
         navigationController?.pushViewController(weatherDetailsVC, animated: true)
     }

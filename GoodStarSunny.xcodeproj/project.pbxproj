@@ -34,6 +34,7 @@
 		DBC5919324BDAC0C00499BD8 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBC5918F24BDAC0C00499BD8 /* Extensions.swift */; };
 		DBC5919424BDAC0C00499BD8 /* NVLoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBC5919024BDAC0C00499BD8 /* NVLoadingView.swift */; };
 		DBD5278E24C57DB900CC2F4F /* forecastHourCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBD5278D24C57DB900CC2F4F /* forecastHourCell.swift */; };
+		DBF57D8324C591830091FB27 /* ForecastDayCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBF57D8224C591830091FB27 /* ForecastDayCell.swift */; };
 		FD117B29ED2DA13E336CEA76 /* Pods_GoodStarSunny.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD1ABA08CB590AC9725577CC /* Pods_GoodStarSunny.framework */; };
 /* End PBXBuildFile section */
 
@@ -68,6 +69,7 @@
 		DBC5918F24BDAC0C00499BD8 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		DBC5919024BDAC0C00499BD8 /* NVLoadingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NVLoadingView.swift; sourceTree = "<group>"; };
 		DBD5278D24C57DB900CC2F4F /* forecastHourCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = forecastHourCell.swift; sourceTree = "<group>"; };
+		DBF57D8224C591830091FB27 /* ForecastDayCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForecastDayCell.swift; sourceTree = "<group>"; };
 		DD1ABA08CB590AC9725577CC /* Pods_GoodStarSunny.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GoodStarSunny.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F47D805CDA4C48CAE57BF04A /* Pods-GoodStarSunny.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GoodStarSunny.release.xcconfig"; path = "Target Support Files/Pods-GoodStarSunny/Pods-GoodStarSunny.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -128,6 +130,7 @@
 				DB14724724C0598B00B64B82 /* MainCell.swift */,
 				DB14724924C198C800B64B82 /* WeatherDetailsVC.swift */,
 				DBD5278D24C57DB900CC2F4F /* forecastHourCell.swift */,
+				DBF57D8224C591830091FB27 /* ForecastDayCell.swift */,
 				DB14723A24BEFA3900B64B82 /* AddVC.swift */,
 				DB14723C24BF061400B64B82 /* SearchVC.swift */,
 				DB14723E24C00A2E00B64B82 /* SearchCell.swift */,
@@ -297,6 +300,7 @@
 				DB14724624C0453700B64B82 /* CoreDataConnect.swift in Sources */,
 				DB46CA3224BD80A100C2E4AD /* MainVC.swift in Sources */,
 				DB14723B24BEFA3900B64B82 /* AddVC.swift in Sources */,
+				DBF57D8324C591830091FB27 /* ForecastDayCell.swift in Sources */,
 				DB14724124C03D8600B64B82 /* AlamofireManager.swift in Sources */,
 				DBC5919424BDAC0C00499BD8 /* NVLoadingView.swift in Sources */,
 				DBC5919224BDAC0C00499BD8 /* CustomPickerView.swift in Sources */,
