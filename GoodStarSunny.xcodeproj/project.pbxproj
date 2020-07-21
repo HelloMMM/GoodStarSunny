@@ -7,6 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DB14723B24BEFA3900B64B82 /* AddVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB14723A24BEFA3900B64B82 /* AddVC.swift */; };
+		DB14723D24BF061400B64B82 /* SearchVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB14723C24BF061400B64B82 /* SearchVC.swift */; };
+		DB14723F24C00A2E00B64B82 /* SearchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB14723E24C00A2E00B64B82 /* SearchCell.swift */; };
+		DB14724124C03D8600B64B82 /* AlamofireManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB14724024C03D8600B64B82 /* AlamofireManager.swift */; };
+		DB14724424C0438200B64B82 /* CoreData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DB14724224C0438200B64B82 /* CoreData.xcdatamodeld */; };
+		DB14724624C0453700B64B82 /* CoreDataConnect.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB14724524C0453700B64B82 /* CoreDataConnect.swift */; };
+		DB14724824C0598B00B64B82 /* MainCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB14724724C0598B00B64B82 /* MainCell.swift */; };
+		DB14724A24C198C800B64B82 /* WeatherDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB14724924C198C800B64B82 /* WeatherDetailsVC.swift */; };
 		DB316A9924BD7B4900BE45FE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB316A9824BD7B4900BE45FE /* AppDelegate.swift */; };
 		DB316A9D24BD7B4900BE45FE /* TabbarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB316A9C24BD7B4900BE45FE /* TabbarVC.swift */; };
 		DB316AA024BD7B4900BE45FE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB316A9E24BD7B4900BE45FE /* Main.storyboard */; };
@@ -25,11 +33,21 @@
 		DBC5919224BDAC0C00499BD8 /* CustomPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBC5918E24BDAC0C00499BD8 /* CustomPickerView.swift */; };
 		DBC5919324BDAC0C00499BD8 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBC5918F24BDAC0C00499BD8 /* Extensions.swift */; };
 		DBC5919424BDAC0C00499BD8 /* NVLoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBC5919024BDAC0C00499BD8 /* NVLoadingView.swift */; };
+		DBD5278E24C57DB900CC2F4F /* forecastHourCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBD5278D24C57DB900CC2F4F /* forecastHourCell.swift */; };
+		DBF57D8324C591830091FB27 /* ForecastDayCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBF57D8224C591830091FB27 /* ForecastDayCell.swift */; };
 		FD117B29ED2DA13E336CEA76 /* Pods_GoodStarSunny.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD1ABA08CB590AC9725577CC /* Pods_GoodStarSunny.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		A7E1485798BA5527A4F2DCA7 /* Pods-GoodStarSunny.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GoodStarSunny.debug.xcconfig"; path = "Target Support Files/Pods-GoodStarSunny/Pods-GoodStarSunny.debug.xcconfig"; sourceTree = "<group>"; };
+		DB14723A24BEFA3900B64B82 /* AddVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddVC.swift; sourceTree = "<group>"; };
+		DB14723C24BF061400B64B82 /* SearchVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchVC.swift; sourceTree = "<group>"; };
+		DB14723E24C00A2E00B64B82 /* SearchCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCell.swift; sourceTree = "<group>"; };
+		DB14724024C03D8600B64B82 /* AlamofireManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlamofireManager.swift; sourceTree = "<group>"; };
+		DB14724324C0438200B64B82 /* CoreData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CoreData.xcdatamodel; sourceTree = "<group>"; };
+		DB14724524C0453700B64B82 /* CoreDataConnect.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataConnect.swift; sourceTree = "<group>"; };
+		DB14724724C0598B00B64B82 /* MainCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCell.swift; sourceTree = "<group>"; };
+		DB14724924C198C800B64B82 /* WeatherDetailsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherDetailsVC.swift; sourceTree = "<group>"; };
 		DB316A9524BD7B4900BE45FE /* GoodStarSunny.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GoodStarSunny.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB316A9824BD7B4900BE45FE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DB316A9C24BD7B4900BE45FE /* TabbarVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabbarVC.swift; sourceTree = "<group>"; };
@@ -50,6 +68,8 @@
 		DBC5918E24BDAC0C00499BD8 /* CustomPickerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomPickerView.swift; sourceTree = "<group>"; };
 		DBC5918F24BDAC0C00499BD8 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		DBC5919024BDAC0C00499BD8 /* NVLoadingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NVLoadingView.swift; sourceTree = "<group>"; };
+		DBD5278D24C57DB900CC2F4F /* forecastHourCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = forecastHourCell.swift; sourceTree = "<group>"; };
+		DBF57D8224C591830091FB27 /* ForecastDayCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForecastDayCell.swift; sourceTree = "<group>"; };
 		DD1ABA08CB590AC9725577CC /* Pods_GoodStarSunny.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GoodStarSunny.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F47D805CDA4C48CAE57BF04A /* Pods-GoodStarSunny.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GoodStarSunny.release.xcconfig"; path = "Target Support Files/Pods-GoodStarSunny/Pods-GoodStarSunny.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -107,15 +127,24 @@
 				DB316A9824BD7B4900BE45FE /* AppDelegate.swift */,
 				DB316A9C24BD7B4900BE45FE /* TabbarVC.swift */,
 				DB46CA3124BD80A100C2E4AD /* MainVC.swift */,
+				DB14724724C0598B00B64B82 /* MainCell.swift */,
+				DB14724924C198C800B64B82 /* WeatherDetailsVC.swift */,
+				DBD5278D24C57DB900CC2F4F /* forecastHourCell.swift */,
+				DBF57D8224C591830091FB27 /* ForecastDayCell.swift */,
+				DB14723A24BEFA3900B64B82 /* AddVC.swift */,
+				DB14723C24BF061400B64B82 /* SearchVC.swift */,
+				DB14723E24C00A2E00B64B82 /* SearchCell.swift */,
 				DB46CA3324BD80D500C2E4AD /* MoreVC.swift */,
 				DBC5918A24BDAB2600499BD8 /* MoreCell.swift */,
-				DB46CA4024BDA34700C2E4AD /* AppModel.swift */,
 				DBC5918C24BDAC0C00499BD8 /* Extensions */,
 				DB46CA3524BD832C00C2E4AD /* TabbarStyle */,
+				DB46CA4024BDA34700C2E4AD /* AppModel.swift */,
 				DB316A9E24BD7B4900BE45FE /* Main.storyboard */,
 				DB316AA124BD7B4A00BE45FE /* Assets.xcassets */,
 				DB316AA324BD7B4A00BE45FE /* LaunchScreen.storyboard */,
 				DB316AA624BD7B4A00BE45FE /* Info.plist */,
+				DB14724224C0438200B64B82 /* CoreData.xcdatamodeld */,
+				DB14724524C0453700B64B82 /* CoreDataConnect.swift */,
 			);
 			path = GoodStarSunny;
 			sourceTree = "<group>";
@@ -139,6 +168,7 @@
 				DBC5918E24BDAC0C00499BD8 /* CustomPickerView.swift */,
 				DBC5918F24BDAC0C00499BD8 /* Extensions.swift */,
 				DBC5919024BDAC0C00499BD8 /* NVLoadingView.swift */,
+				DB14724024C03D8600B64B82 /* AlamofireManager.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -262,16 +292,26 @@
 				DB46CA3F24BD832C00C2E4AD /* ExampleIrregularityContentView.swift in Sources */,
 				DB46CA3D24BD832C00C2E4AD /* ExampleBasicContentView.swift in Sources */,
 				DB316A9D24BD7B4900BE45FE /* TabbarVC.swift in Sources */,
+				DB14724A24C198C800B64B82 /* WeatherDetailsVC.swift in Sources */,
 				DB46CA4124BDA34700C2E4AD /* AppModel.swift in Sources */,
+				DBD5278E24C57DB900CC2F4F /* forecastHourCell.swift in Sources */,
 				DB46CA3C24BD832C00C2E4AD /* ExampleBouncesContentView.swift in Sources */,
 				DB46CA3B24BD832C00C2E4AD /* ExampleBackgroundContentView.swift in Sources */,
+				DB14724624C0453700B64B82 /* CoreDataConnect.swift in Sources */,
 				DB46CA3224BD80A100C2E4AD /* MainVC.swift in Sources */,
+				DB14723B24BEFA3900B64B82 /* AddVC.swift in Sources */,
+				DBF57D8324C591830091FB27 /* ForecastDayCell.swift in Sources */,
+				DB14724124C03D8600B64B82 /* AlamofireManager.swift in Sources */,
 				DBC5919424BDAC0C00499BD8 /* NVLoadingView.swift in Sources */,
 				DBC5919224BDAC0C00499BD8 /* CustomPickerView.swift in Sources */,
+				DB14724424C0438200B64B82 /* CoreData.xcdatamodeld in Sources */,
 				DBC5918B24BDAB2600499BD8 /* MoreCell.swift in Sources */,
 				DB316A9924BD7B4900BE45FE /* AppDelegate.swift in Sources */,
+				DB14724824C0598B00B64B82 /* MainCell.swift in Sources */,
+				DB14723F24C00A2E00B64B82 /* SearchCell.swift in Sources */,
 				DB46CA3E24BD832C00C2E4AD /* ExampleHighlightableContentView.swift in Sources */,
 				DB46CA3424BD80D500C2E4AD /* MoreVC.swift in Sources */,
+				DB14723D24BF061400B64B82 /* SearchVC.swift in Sources */,
 				DBC5919324BDAC0C00499BD8 /* Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -478,6 +518,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		DB14724224C0438200B64B82 /* CoreData.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				DB14724324C0438200B64B82 /* CoreData.xcdatamodel */,
+			);
+			currentVersion = DB14724324C0438200B64B82 /* CoreData.xcdatamodel */;
+			path = CoreData.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = DB316A8D24BD7B4900BE45FE /* Project object */;
 }

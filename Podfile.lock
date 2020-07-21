@@ -1,4 +1,5 @@
 PODS:
+  - Alamofire (5.2.1)
   - ESTabBarController-swift (2.8.0)
   - Google-Mobile-Ads-SDK (7.62.0):
     - GoogleAppMeasurement (~> 6.0)
@@ -39,6 +40,7 @@ PODS:
   - PromisesObjC (1.2.9)
 
 DEPENDENCIES:
+  - Alamofire
   - ESTabBarController-swift
   - Google-Mobile-Ads-SDK
   - Hero
@@ -48,6 +50,7 @@ DEPENDENCIES:
 
 SPEC REPOS:
   trunk:
+    - Alamofire
     - ESTabBarController-swift
     - Google-Mobile-Ads-SDK
     - GoogleAppMeasurement
@@ -60,6 +63,7 @@ SPEC REPOS:
     - PromisesObjC
 
 SPEC CHECKSUMS:
+  Alamofire: e911732990610fe89af59ac0077f923d72dc3dfd
   ESTabBarController-swift: 05593a6ad64700b03c0eb60ff625916370aa4136
   Google-Mobile-Ads-SDK: c92c27666fbf684c964259785a6b3cdd3068e06f
   GoogleAppMeasurement: 8cd1f289d60e629cf16ab03363b9e89c776b9651
@@ -71,6 +75,6 @@ SPEC CHECKSUMS:
   pop: d582054913807fd11fd50bfe6a539d91c7e1a55a
   PromisesObjC: b48e0338dbbac2207e611750777895f7a5811b75
 
-PODFILE CHECKSUM: 6e62de07dd398c009faf5ca8aa463db56883b08b
+PODFILE CHECKSUM: 11a696277a952d9222bc0725315d66cecfd886f3
 
 COCOAPODS: 1.8.3
