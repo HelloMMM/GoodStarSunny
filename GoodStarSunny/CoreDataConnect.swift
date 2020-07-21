@@ -98,4 +98,28 @@ class CoreDataConnect {
             }
         }
     }
+    
+    func change(predicate: String, id1: Int, id2: Int) {
+        
+        let predicate1 = "id = '\(id1)'"
+        let predicate2 = "id = '\(id2)'"
+        let results1 = retrieve(predicate: predicate1, sort: nil, limit: nil)!
+        let results2 = retrieve(predicate: predicate2, sort: nil, limit: nil)!
+        
+        for result in results1 {
+            
+            result.setValue(id2, forKey: "id")
+        }
+        
+        for result in results2 {
+            
+            result.setValue(id1, forKey: "id")
+        }
+        
+        do {
+            try myContext.save()
+        } catch {
+            fatalError("\(error)")
+        }
+    }
 }

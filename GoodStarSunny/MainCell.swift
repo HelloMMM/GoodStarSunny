@@ -17,6 +17,17 @@ class MainCell: UICollectionViewCell, UIGestureRecognizerDelegate {
     @IBOutlet weak var area: UILabel!
     @IBOutlet weak var temp: UILabel!
     @IBOutlet weak var weatherImageView: UIImageView!
+    @IBOutlet weak var menuImageView: UIImageView!
+    
+    var isEdit = false {
+        didSet {
+            if isEdit {
+                startAnimate()
+            } else {
+                stopAnimate()
+            }
+        }
+    }
     
     var width: CGFloat!
     var height: CGFloat!
@@ -44,6 +55,40 @@ class MainCell: UICollectionViewCell, UIGestureRecognizerDelegate {
         
         deleteImageView.frame = CGRect(x: 0, y: 0, width: 60, height: 60)
         deleteImageView.center = CGPoint(x: width-60, y: height/2)
+    }
+    
+    private func startAnimate() {
+        
+        menuImageView.alpha = 1
+        time.alpha = 0
+        weather.alpha = 0
+        temp.alpha = 0
+        weatherImageView.alpha = 0
+        
+        let shakeAnimation = CABasicAnimation(keyPath: "transform.rotation")
+        shakeAnimation.duration = 0.2
+        shakeAnimation.repeatCount = .infinity
+        
+        let startAngle: Float = (-0.5) * 3.14159/180
+        let stopAngle = -startAngle
+        
+        shakeAnimation.fromValue = NSNumber(value: startAngle as Float)
+        shakeAnimation.toValue = NSNumber(value: 3 * stopAngle as Float)
+        shakeAnimation.autoreverses = true
+        shakeAnimation.timeOffset = 290 * drand48()
+        
+        layer.add(shakeAnimation, forKey:"animate")
+    }
+    
+    private func stopAnimate() {
+        
+        menuImageView.alpha = 0
+        time.alpha = 1
+        weather.alpha = 1
+        temp.alpha = 1
+        weatherImageView.alpha = 1
+        
+        layer.removeAnimation(forKey: "animate")
     }
     
     @objc func onPan(_ pan: UIPanGestureRecognizer) {

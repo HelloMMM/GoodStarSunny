@@ -54,6 +54,7 @@ class AddVC: UIViewController {
         }
         
         addressDic["name"] = nameTextField.text!
+        addressDic["id"] = areaData.count+1
         delegate?.addRegion(addressDic)
         
         dismiss(animated: true, completion: nil)

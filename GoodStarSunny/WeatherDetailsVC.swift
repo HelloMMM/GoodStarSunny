@@ -140,7 +140,7 @@ class WeatherDetailsVC: UIViewController {
         }
         
         uvi.text = "\(current["uvi"] as! NSNumber)"
-        print("current: \(current)")
+//        print("current: \(current)")
     }
     
     override func viewWillAppear(_ animated: Bool) {

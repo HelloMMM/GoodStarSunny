@@ -24,7 +24,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             appStyle = style as! Int
         }
         
-        let areaResult = CoreDataConnect.shared.retrieve(predicate: nil, sort: nil, limit: nil)
+        let areaResult = CoreDataConnect.shared.retrieve(predicate: nil, sort: [["id": true]], limit: nil)
         
         if let results = areaResult {
             
