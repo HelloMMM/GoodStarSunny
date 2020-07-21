@@ -24,6 +24,9 @@ class MoreVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        let textAttributes = [NSAttributedString.Key.foregroundColor:UIColor.white]
+        navigationController?.navigationBar.titleTextAttributes = textAttributes
+        
         lastSelect = appStyle
         tableView.tableFooterView = UIView()
     }

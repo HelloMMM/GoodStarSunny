@@ -33,10 +33,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YBx-9D-KLn">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="440"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Cu4-wA-hbJ">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="1141"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="1177"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="地區" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zbd-vF-Pb0">
                                                 <rect key="frame" x="124.5" y="35" width="71" height="36"/>
@@ -437,7 +437,7 @@
                                             <constraint firstItem="OYo-hG-Ykx" firstAttribute="top" secondItem="RBx-66-6Cx" secondAttribute="bottom" id="3Pf-q1-WE6"/>
                                             <constraint firstItem="MMd-BY-BWW" firstAttribute="leading" secondItem="Cu4-wA-hbJ" secondAttribute="leading" constant="10" id="3ZB-M8-qSL"/>
                                             <constraint firstItem="p4P-fq-57x" firstAttribute="leading" secondItem="kVx-UG-aoM" secondAttribute="trailing" constant="20" id="4Cl-iA-s1p"/>
-                                            <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="GJg-B8-NfU" secondAttribute="bottom" constant="30" id="6jN-Td-36l"/>
+                                            <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="GJg-B8-NfU" secondAttribute="bottom" constant="66" id="6jN-Td-36l"/>
                                             <constraint firstItem="OdD-eo-M1E" firstAttribute="top" secondItem="Zbd-vF-Pb0" secondAttribute="bottom" constant="15" id="6mI-sh-TJi"/>
                                             <constraint firstItem="ClI-d1-Cte" firstAttribute="top" secondItem="OYo-hG-Ykx" secondAttribute="bottom" id="7Js-V1-pRo"/>
                                             <constraint firstItem="kVx-UG-aoM" firstAttribute="centerY" secondItem="p4P-fq-57x" secondAttribute="centerY" id="7eQ-sr-vdi"/>
@@ -528,7 +528,7 @@
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="YBx-9D-KLn" firstAttribute="bottom" secondItem="sot-HL-FqX" secondAttribute="bottom" constant="-40" id="0rN-R6-Bmc"/>
+                            <constraint firstItem="YBx-9D-KLn" firstAttribute="bottom" secondItem="sot-HL-FqX" secondAttribute="bottom" id="0rN-R6-Bmc"/>
                             <constraint firstItem="YBx-9D-KLn" firstAttribute="trailing" secondItem="sot-HL-FqX" secondAttribute="trailing" id="DCq-Vp-UX5"/>
                             <constraint firstItem="YBx-9D-KLn" firstAttribute="top" secondItem="sot-HL-FqX" secondAttribute="top" id="NbW-0x-Ct6"/>
                             <constraint firstItem="YBx-9D-KLn" firstAttribute="leading" secondItem="sot-HL-FqX" secondAttribute="leading" id="bX8-iH-fnC"/>
@@ -1116,8 +1116,11 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="w98-gz-ykO" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="w3e-0Q-fYS">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="50"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
+                        </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>

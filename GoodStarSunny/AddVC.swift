@@ -55,9 +55,10 @@ class AddVC: UIViewController {
         
         addressDic["name"] = nameTextField.text!
         addressDic["id"] = areaData.count+1
-        delegate?.addRegion(addressDic)
         
-        dismiss(animated: true, completion: nil)
+        dismiss(animated: true) {
+            self.delegate?.addRegion(self.addressDic)
+        }
     }
     
     func presentSearchVC() {
@@ -87,11 +88,11 @@ extension AddVC: UITextFieldDelegate {
         let numberOfChars = newText.count
         
         if textField == nameTextField {
-            if numberOfChars > 5 {
-                showToast("最多5個字")
+            if numberOfChars > 8 {
+                showToast("最多8個字")
                 textField.shake()
             }
-            return numberOfChars <= 5
+            return numberOfChars <= 8
         } else {
             return true
         }

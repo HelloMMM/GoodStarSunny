@@ -24,6 +24,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             appStyle = style as! Int
         }
         
+        if let removeAD = UserDefaults.standard.object(forKey: "isRemoveAD") {
+            
+            isRemoveAD = removeAD as! Bool
+        }
+        
         let areaResult = CoreDataConnect.shared.retrieve(predicate: nil, sort: [["id": true]], limit: nil)
         
         if let results = areaResult {

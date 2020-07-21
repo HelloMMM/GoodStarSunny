@@ -14,6 +14,7 @@ import GoogleMobileAds
 
 class TabbarVC: ESTabBarController, MoreVCDelegate {
 
+    var interstitial: GADInterstitial!
     var bannerView: GADBannerView!
     var mainVC: MainVC!
     var addVC: UIViewController!
@@ -24,9 +25,12 @@ class TabbarVC: ESTabBarController, MoreVCDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        interstitial = createAndLoadInterstitial()
         if !isRemoveAD {
             addBannerViewToView()
         }
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(removeAD), name: NSNotification.Name("RemoveAD") , object: nil)
         
         mainVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "MainVC") as? MainVC
         
@@ -58,6 +62,28 @@ class TabbarVC: ESTabBarController, MoreVCDelegate {
             addVC.delegate = self
             self?.present(addVC, animated: true, completion: nil)
         }
+    }
+    
+    @objc func removeAD(notification: NSNotification) {
+            
+        isRemoveAD = true
+        
+        if bannerView != nil {
+            bannerView.removeFromSuperview()
+        }
+    }
+    
+    func createAndLoadInterstitial() -> GADInterstitial {
+        
+        #if DEBUG
+            interstitial = GADInterstitial(adUnitID: "ca-app-pub-3940256099942544/4411468910")
+        #else
+            interstitial = GADInterstitial(adUnitID: "ca-app-pub-1223027370530841/3525494731")
+        #endif
+        interstitial.delegate = self
+        interstitial.load(GADRequest())
+        
+        return interstitial
     }
     
     func addBannerViewToView() {
@@ -142,10 +168,30 @@ extension TabbarVC: AddVCDelegate {
             areaData = CoreDataConnect.shared.retrieve(predicate: nil, sort: [["id": true]], limit: nil)!
         }
         mainVC.collectionView.reloadData()
+        
+        selectedViewController = viewControllers![0]
+//        selectedIndex = 0
     }
 }
 
-extension TabbarVC: GADBannerViewDelegate {
+extension TabbarVC: GADBannerViewDelegate, GADInterstitialDelegate {
+    
+    func interstitialDidReceiveAd(_ ad: GADInterstitial) {
+        
+        if UserDefaults.standard.object(forKey: "firstOpen") != nil {
+            
+            if !isRemoveAD {
+                interstitial.present(fromRootViewController: self)
+            }
+        } else {
+            UserDefaults.standard.set(true, forKey: "firstOpen")
+        }
+    }
+    
+    func interstitialDidDismissScreen(_ ad: GADInterstitial) {
+
+//        interstitial = createAndLoadInterstitial()
+    }
     
     func adViewDidReceiveAd(_ bannerView: GADBannerView) {
       print("adViewDidReceiveAd")

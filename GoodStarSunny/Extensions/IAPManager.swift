@@ -11,7 +11,7 @@ import StoreKit
 
 class IAPManager: NSObject {
     
-    let productID = "uuu.HelloM.BodyInformation.item02"
+    let productID = "com.MS.GoodStarSunny.item01"
     static let shared = IAPManager()
     var reuqest: SKProductsRequest!
     var products: [SKProduct] = []
