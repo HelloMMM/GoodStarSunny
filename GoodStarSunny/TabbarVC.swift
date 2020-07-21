@@ -139,7 +139,7 @@ extension TabbarVC: AddVCDelegate {
         CoreDataConnect.shared.insert(attributeInfo: addressDic)
         if CoreDataConnect.shared.retrieve(predicate: nil, sort: nil, limit: nil) != nil {
             
-            areaData = CoreDataConnect.shared.retrieve(predicate: nil, sort: nil, limit: nil)!
+            areaData = CoreDataConnect.shared.retrieve(predicate: nil, sort: [["id": true]], limit: nil)!
         }
         mainVC.collectionView.reloadData()
     }

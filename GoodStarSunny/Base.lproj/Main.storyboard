@@ -9,7 +9,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--asdsfs-->
+        <!--TabbarVC-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="TabbarVC" customModule="GoodStarSunny" customModuleProvider="target" sceneMemberID="viewController">
@@ -19,7 +19,6 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
-                    <navigationItem key="navigationItem" title="asdsfs" id="LRf-B8-l5b"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -694,7 +693,13 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Ypr-Qh-mHo"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Home" id="P75-00-oyg"/>
+                    <navigationItem key="navigationItem" title="Home" id="P75-00-oyg">
+                        <barButtonItem key="rightBarButtonItem" image="edit" id="SuW-G7-oSn">
+                            <connections>
+                                <action selector="editClick:" destination="dGe-82-GK1" id="nW1-n2-1fm"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="collectionView" destination="jng-Et-Gd9" id="Yb7-nh-2aS"/>
                     </connections>
@@ -1134,5 +1139,6 @@
     </scenes>
     <resources>
         <image name="NotFound" width="90" height="90"/>
+        <image name="edit" width="25" height="25"/>
     </resources>
 </document>
