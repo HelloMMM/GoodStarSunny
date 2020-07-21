@@ -637,6 +637,13 @@
                                                             <color key="textColor" red="0.15711477400000001" green="0.1642126441" blue="0.1882386506" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.0" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="menu" translatesAutoresizingMaskIntoConstraints="NO" id="lGU-L5-7lN">
+                                                            <rect key="frame" x="226.5" y="34.5" width="35" height="35"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" constant="35" id="6D3-di-UgT"/>
+                                                                <constraint firstAttribute="height" constant="35" id="UkS-Ib-TvN"/>
+                                                            </constraints>
+                                                        </imageView>
                                                     </subviews>
                                                     <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                     <constraints>
@@ -644,9 +651,11 @@
                                                         <constraint firstItem="BgB-xE-dWS" firstAttribute="centerY" secondItem="gN0-hi-TXr" secondAttribute="centerY" constant="-25" id="1eu-4h-CYy"/>
                                                         <constraint firstAttribute="trailing" secondItem="SOh-fE-A3H" secondAttribute="trailing" constant="30" id="8MR-Hn-zSH"/>
                                                         <constraint firstItem="gti-uQ-HCJ" firstAttribute="leading" secondItem="gN0-hi-TXr" secondAttribute="leading" constant="30" id="A0I-I5-cIa"/>
+                                                        <constraint firstAttribute="trailing" secondItem="lGU-L5-7lN" secondAttribute="trailing" constant="25.5" id="DOO-pN-SbW"/>
                                                         <constraint firstItem="nHt-qa-Lk6" firstAttribute="centerX" secondItem="gN0-hi-TXr" secondAttribute="centerX" id="JAU-0Q-RwH"/>
                                                         <constraint firstItem="gti-uQ-HCJ" firstAttribute="top" secondItem="sp5-FS-xzt" secondAttribute="bottom" constant="20" id="Nkf-bg-Jtf"/>
                                                         <constraint firstItem="SOh-fE-A3H" firstAttribute="top" secondItem="gN0-hi-TXr" secondAttribute="top" constant="20" id="WDZ-vs-56V"/>
+                                                        <constraint firstItem="lGU-L5-7lN" firstAttribute="centerY" secondItem="gN0-hi-TXr" secondAttribute="centerY" id="kfK-LX-wSL"/>
                                                         <constraint firstItem="BgB-xE-dWS" firstAttribute="centerX" secondItem="gN0-hi-TXr" secondAttribute="centerX" id="km2-zz-oUI"/>
                                                         <constraint firstAttribute="trailing" secondItem="m7I-le-Ax7" secondAttribute="trailing" constant="30" id="lKc-KE-6hK"/>
                                                         <constraint firstItem="sp5-FS-xzt" firstAttribute="top" secondItem="gN0-hi-TXr" secondAttribute="top" constant="20" id="oC9-Nr-Kff"/>
@@ -670,6 +679,7 @@
                                         </collectionViewCellContentView>
                                         <connections>
                                             <outlet property="area" destination="gti-uQ-HCJ" id="veG-Ry-6u8"/>
+                                            <outlet property="menuImageView" destination="lGU-L5-7lN" id="4oA-DZ-khM"/>
                                             <outlet property="name" destination="sp5-FS-xzt" id="AiY-xB-ywR"/>
                                             <outlet property="temp" destination="m7I-le-Ax7" id="Ezn-WW-MD8"/>
                                             <outlet property="time" destination="SOh-fE-A3H" id="sHh-3e-KKw"/>
@@ -1140,5 +1150,6 @@
     <resources>
         <image name="NotFound" width="90" height="90"/>
         <image name="edit" width="25" height="25"/>
+        <image name="menu" width="64" height="64"/>
     </resources>
 </document>

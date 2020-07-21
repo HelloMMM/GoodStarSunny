@@ -17,6 +17,8 @@ class MainCell: UICollectionViewCell, UIGestureRecognizerDelegate {
     @IBOutlet weak var area: UILabel!
     @IBOutlet weak var temp: UILabel!
     @IBOutlet weak var weatherImageView: UIImageView!
+    @IBOutlet weak var menuImageView: UIImageView!
+    
     var isEdit = false {
         didSet {
             if isEdit {
@@ -56,6 +58,13 @@ class MainCell: UICollectionViewCell, UIGestureRecognizerDelegate {
     }
     
     private func startAnimate() {
+        
+        menuImageView.alpha = 1
+        time.alpha = 0
+        weather.alpha = 0
+        temp.alpha = 0
+        weatherImageView.alpha = 0
+        
         let shakeAnimation = CABasicAnimation(keyPath: "transform.rotation")
         shakeAnimation.duration = 0.2
         shakeAnimation.repeatCount = .infinity
@@ -72,6 +81,13 @@ class MainCell: UICollectionViewCell, UIGestureRecognizerDelegate {
     }
     
     private func stopAnimate() {
+        
+        menuImageView.alpha = 0
+        time.alpha = 1
+        weather.alpha = 1
+        temp.alpha = 1
+        weatherImageView.alpha = 1
+        
         layer.removeAnimation(forKey: "animate")
     }
     
