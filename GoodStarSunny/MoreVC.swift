@@ -87,7 +87,7 @@ extension MoreVC: UITableViewDelegate, UITableViewDataSource {
     
     func showAppStore() {
         
-        let urlString =  "itms-apps:itunes.apple.com/us/app/apple-store/id1520163103?mt=8&action=write-review"
+        let urlString =  "itms-apps:itunes.apple.com/us/app/apple-store/id1524433976?mt=8&action=write-review"
         let url = URL(string: urlString)!
         UIApplication.shared.open(url, completionHandler: nil)
     }

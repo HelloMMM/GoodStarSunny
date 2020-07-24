@@ -12,7 +12,7 @@
         <!--TabbarVC-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="TabbarVC" customModule="GoodStarSunny" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="TabbarVC" customModule="好星晴" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -27,7 +27,7 @@
         <!--Weather DetailsVC-->
         <scene sceneID="iKa-nQ-gIf">
             <objects>
-                <viewController storyboardIdentifier="WeatherDetailsVC" id="2cJ-lF-mRd" customClass="WeatherDetailsVC" customModule="GoodStarSunny" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="WeatherDetailsVC" id="2cJ-lF-mRd" customClass="WeatherDetailsVC" customModule="好星晴" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="qcb-cP-rMy">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -113,7 +113,7 @@
                                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                                 </collectionViewFlowLayout>
                                                 <cells>
-                                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="forecastHourCell" id="wM8-SU-mfw" customClass="forecastHourCell" customModule="GoodStarSunny" customModuleProvider="target">
+                                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="forecastHourCell" id="wM8-SU-mfw" customClass="forecastHourCell" customModule="好星晴" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="0.0" width="80" height="120"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="GBd-Pa-0SK">
@@ -184,7 +184,7 @@
                                                     <constraint firstAttribute="height" constant="300" id="UmB-Ec-ueR"/>
                                                 </constraints>
                                                 <prototypes>
-                                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="forecastDayCell" id="4ss-en-xqi" customClass="ForecastDayCell" customModule="GoodStarSunny" customModuleProvider="target">
+                                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="forecastDayCell" id="4ss-en-xqi" customClass="ForecastDayCell" customModule="好星晴" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="28" width="320" height="43"/>
                                                         <autoresizingMask key="autoresizingMask"/>
                                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="4ss-en-xqi" id="uSN-yM-YM6">
@@ -560,7 +560,7 @@
         <!--Home-->
         <scene sceneID="eyh-Iy-fbh">
             <objects>
-                <viewController storyboardIdentifier="MainVC" id="dGe-82-GK1" customClass="MainVC" customModule="GoodStarSunny" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MainVC" id="dGe-82-GK1" customClass="MainVC" customModule="好星晴" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="g37-cP-iQY">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -575,7 +575,7 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="MainCell" id="kLK-6H-WtY" customClass="MainCell" customModule="GoodStarSunny" customModuleProvider="target">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="MainCell" id="kLK-6H-WtY" customClass="MainCell" customModule="好星晴" customModuleProvider="target">
                                         <rect key="frame" x="16.5" y="0.0" width="287" height="104"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="8rB-Pj-sVa">
@@ -721,7 +721,7 @@
         <!--AddVC-->
         <scene sceneID="m7n-E8-4PD">
             <objects>
-                <viewController storyboardIdentifier="AddVC" modalPresentationStyle="overFullScreen" id="zG5-pE-qBg" customClass="AddVC" customModule="GoodStarSunny" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AddVC" modalPresentationStyle="overFullScreen" id="zG5-pE-qBg" customClass="AddVC" customModule="好星晴" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="hPz-xv-SwX">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -880,7 +880,7 @@
         <!--SearchVC-->
         <scene sceneID="weH-CL-JFP">
             <objects>
-                <viewController storyboardIdentifier="SearchVC" modalPresentationStyle="overFullScreen" id="TkU-ag-Cz3" customClass="SearchVC" customModule="GoodStarSunny" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SearchVC" modalPresentationStyle="overFullScreen" id="TkU-ag-Cz3" customClass="SearchVC" customModule="好星晴" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="bvx-3E-0NB">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -934,7 +934,7 @@
                                 <rect key="frame" x="0.0" y="90" width="320" height="390"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="SearchCell" rowHeight="50" id="KlG-Ti-zwX" customClass="SearchCell" customModule="GoodStarSunny" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="SearchCell" rowHeight="50" id="KlG-Ti-zwX" customClass="SearchCell" customModule="好星晴" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="320" height="50"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="KlG-Ti-zwX" id="0At-GQ-JSv">
@@ -1031,7 +1031,7 @@
         <!--更多-->
         <scene sceneID="ki0-My-0Z8">
             <objects>
-                <viewController storyboardIdentifier="MoreVC" id="Vhw-VX-oht" customClass="MoreVC" customModule="GoodStarSunny" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MoreVC" id="Vhw-VX-oht" customClass="MoreVC" customModule="好星晴" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="t4f-bH-uGz">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1040,7 +1040,7 @@
                                 <rect key="frame" x="0.0" y="44" width="320" height="436"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="MoreCell" rowHeight="45" id="nnV-yC-c0Z" customClass="MoreCell" customModule="GoodStarSunny" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="MoreCell" rowHeight="45" id="nnV-yC-c0Z" customClass="MoreCell" customModule="好星晴" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="320" height="45"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="nnV-yC-c0Z" id="Tod-y8-uFg">
@@ -1137,7 +1137,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="N3x-Kj-Yug" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="DV0-d1-oQ3">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="50"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -1148,6 +1148,21 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GkZ-xF-34v" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1565.625" y="845"/>
+        </scene>
+        <!--TestVC-->
+        <scene sceneID="qfH-tQ-BjO">
+            <objects>
+                <viewController storyboardIdentifier="TestVC" modalPresentationStyle="overFullScreen" id="DBr-86-3bu" customClass="TestVC" customModule="好星晴" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="1cl-yK-k0M">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="geN-Lt-tjR"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Tcy-V4-Xgc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-133" y="113"/>
         </scene>
     </scenes>
     <resources>

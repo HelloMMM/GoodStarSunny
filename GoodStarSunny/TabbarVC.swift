@@ -11,6 +11,7 @@ import ESTabBarController_swift
 import Hero
 import GoogleMobileAds
 
+var tabbarVC: ESTabBarController!
 
 class TabbarVC: ESTabBarController, MoreVCDelegate {
 
@@ -58,9 +59,19 @@ class TabbarVC: ESTabBarController, MoreVCDelegate {
         didHijackHandler = {
             [weak self] tabbarController, viewController, index in
             
-            let addVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "AddVC") as! AddVC
-            addVC.delegate = self
-            self?.present(addVC, animated: true, completion: nil)
+            self?.addClick()
+        }
+        
+        tabbarVC = self
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        
+        if UserDefaults.standard.object(forKey: "firstOpen") == nil {
+            
+            let testVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "TestVC") as! TestVC
+            testVC.testVCDelegate = self
+            present(testVC, animated: true, completion: nil)
         }
     }
     
@@ -155,6 +166,21 @@ class TabbarVC: ESTabBarController, MoreVCDelegate {
         mainVC.tabBarItem = ESTabBarItem(basicContentView1, title: "Home", image: UIImage(named: "home"), selectedImage: UIImage(named: "home"))
         addVC.tabBarItem = ESTabBarItem(exampleIrregularityContentView, title: nil, image: UIImage(named: "add"), selectedImage: UIImage(named: "add"))
         moreVC.tabBarItem = ESTabBarItem(basicContentView2, title: "更多", image: UIImage(named: "more"), selectedImage: UIImage(named: "more"))
+    }
+    
+    func addClick() {
+        
+        let addVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "AddVC") as! AddVC
+        addVC.delegate = self
+        present(addVC, animated: true, completion: nil)
+    }
+}
+
+extension TabbarVC: TestVCDelegate {
+    
+    func enterMain() {
+        
+        addClick()
     }
 }
 
