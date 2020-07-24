@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreData
+import Hero
 
 class WeatherDetailsVC: UIViewController {
 
@@ -40,6 +41,9 @@ class WeatherDetailsVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let pan = UIPanGestureRecognizer(target: self, action: #selector(leftSwipeDismiss(_:)))
+        view.addGestureRecognizer(pan)
         
         title = areaData["name"] as? String
         area.text = areaData["area"] as? String
@@ -145,6 +149,34 @@ class WeatherDetailsVC: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         view.backgroundColor = bgColor
+    }
+    
+    @objc func leftSwipeDismiss(_ pan:UIPanGestureRecognizer) {
+        
+        let translation = pan.translation(in: nil)
+        let progress = translation.x / 2 / view.bounds.width
+        let gestureView = pan.location(in: self.view)
+        
+        switch pan.state {
+        case .began:
+            
+            if gestureView.x <= 30 {
+                hero_dismissViewController()
+            }
+
+        case .changed:
+            
+            let translation = pan.translation(in: nil)
+            let progress = translation.x / 2 / view.bounds.width
+            Hero.shared.update(progress)
+            
+        default:
+            if progress + pan.velocity(in: nil).x / view.bounds.width > 0.3 {
+                Hero.shared.finish()
+            } else {
+                Hero.shared.cancel()
+            }
+        }
     }
 }
 

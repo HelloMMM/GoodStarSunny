@@ -9,6 +9,7 @@
 import UIKit
 import CoreData
 import AudioToolbox
+import CoreLocation
 
 enum LYFTableViewType {
     case top
@@ -16,6 +17,16 @@ enum LYFTableViewType {
 }
 
 class MainVC: UIViewController {
+    
+    let locationManager :CLLocationManager = CLLocationManager()
+    
+    @IBOutlet weak var currnPosition: UILabel!
+    @IBOutlet weak var currnTime: UILabel!
+    @IBOutlet weak var currnTemp: UILabel!
+    @IBOutlet weak var currnWeatherImageView: UIImageView!
+    @IBOutlet weak var currnWeatherDescription: UILabel!
+    @IBOutlet weak var currnView: UIView!
+    var currnDic: Dictionary<String, Any> = Dictionary()
     
     @IBOutlet weak var collectionView: UICollectionView!
     var toDayAreaData: Dictionary<String, Any> = [:]
@@ -35,7 +46,6 @@ class MainVC: UIViewController {
         navigationController?.navigationBar.tintColor = .white
         let textAttributes = [NSAttributedString.Key.foregroundColor:UIColor.white]
         navigationController?.navigationBar.titleTextAttributes = textAttributes
-
         
         let layout = UICollectionViewFlowLayout()
         layout.sectionInset = UIEdgeInsets(top: 20, left: 0, bottom: 66, right: 0)
@@ -46,6 +56,66 @@ class MainVC: UIViewController {
         
         longPressGesture = UILongPressGestureRecognizer(target: self, action: #selector(handleLongGesture(_:)))
         longPressGesture.minimumPressDuration = 0.2
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(startLocationManager), name: Notification.Name("WillEnterForeground"), object: nil)
+        
+        let tap = UITapGestureRecognizer(target: self, action: #selector(tapClick(_:)))
+        currnView.addGestureRecognizer(tap)
+        
+        locationManager.delegate = self
+        locationManager.desiredAccuracy = kCLLocationAccuracyHundredMeters
+        locationManager.requestAlwaysAuthorization()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        startLocationManager()
+    }
+    
+    @objc func startLocationManager() {
+        
+        if CLLocationManager.authorizationStatus() == .notDetermined {
+
+            locationManager.requestWhenInUseAuthorization()
+            locationManager.startUpdatingLocation()
+        } else if CLLocationManager.authorizationStatus() == .denied {
+
+            let alertController = UIAlertController(title: "定位權限已關閉", message: "如要變更權限，請至 設定 > 隱私權 > 定位服務 開啟", preferredStyle: .alert)
+            let set = UIAlertAction(title: "設定", style: .default, handler: { (action) in
+
+                guard let settingsUrl = URL(string: UIApplication.openSettingsURLString) else {
+                    return
+                }
+
+                if UIApplication.shared.canOpenURL(settingsUrl) {
+                    UIApplication.shared.open(settingsUrl, completionHandler: { (success) in
+                        print("Settings opened: \(success)")
+                    })
+                }
+            })
+            let cancel = UIAlertAction(title: "取消", style: .default, handler: nil)
+
+            alertController.addAction(cancel)
+            alertController.addAction(set)
+            present(alertController, animated: true, completion: nil)
+        } else if CLLocationManager.authorizationStatus() == .authorizedWhenInUse {
+
+            locationManager.startUpdatingLocation()
+        } else if CLLocationManager.authorizationStatus() == .authorizedAlways {
+            
+            locationManager.startUpdatingLocation()
+        }
+    }
+    
+    @objc func tapClick(_ tap: UITapGestureRecognizer) {
+        
+        if isEdit || currnDic["response"] == nil{
+            return
+        }
+        
+        let weatherDetailsVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "WeatherDetailsVC") as! WeatherDetailsVC
+        
+        weatherDetailsVC.areaData = currnDic
+        navigationController?.pushViewController(weatherDetailsVC, animated: true)
     }
     
     @IBAction func editClick(_ sender: UIBarButtonItem) {
@@ -154,7 +224,7 @@ class MainVC: UIViewController {
         let objc1 = areaData[oldIndexPath.row]
         areaData[oldIndexPath.row] = areaData[indexPath.row]
         areaData[indexPath.row] = objc1
-
+        
         collectionView.moveItem(at: oldIndexPath, to: indexPath)
         oldIndexPath = indexPath
     }
@@ -240,6 +310,61 @@ class MainVC: UIViewController {
         return snapshot
     }
 }
+
+extension MainVC: CLLocationManagerDelegate {
+    
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        
+        let currentLocation :CLLocation = locations[0] as CLLocation
+        
+        let lat = currentLocation.coordinate.latitude
+        let lon = currentLocation.coordinate.longitude
+        
+        let geocoder = CLGeocoder()
+        geocoder.reverseGeocodeLocation(currentLocation, completionHandler: {
+            (placemarks:[CLPlacemark]?, error:Error?) in
+            if let placemark = placemarks?[0]{
+                
+                self.currnPosition.text = placemark.locality ?? placemark.subAdministrativeArea ?? ""
+                self.currnDic["name"] = "當前"
+                self.currnDic["area"] = placemark.locality ?? placemark.subAdministrativeArea ?? ""
+            } else {
+                
+            }
+        })
+        
+        let url = "https://api.openweathermap.org/data/2.5/onecall?lat=\(lat)&lon=\(lon)&apikey=5777a715d3b69dba2f196271765e6404&units=metric&lang=zh_tw"
+        
+        AlamofireManager.shared.requestAPI(url: url, onSuccess: { (response) in
+            
+            self.currnDic["response"] = response
+            
+            let current = response["current"] as! Dictionary<String, Any>
+            let weatherAry = current["weather"] as! Array<Any>
+            let weather = weatherAry[0] as! Dictionary<String, Any>
+            self.currnWeatherDescription.text = weather["description"] as? String
+            
+            let icon = weather["icon"] as! String
+            self.currnWeatherImageView.image = UIImage(named: icon)
+            
+            let timezone = response["timezone"] as! String
+            let timeZone = TimeZone(identifier: timezone)
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "HH：mm"
+            dateFormatter.timeZone = timeZone
+            self.currnTime.text = dateFormatter.string(from: Date())
+            
+            let temp = (current["temp"] as! NSNumber).intValue
+            self.currnTemp.text = "\(temp)º"
+            
+        }) { (error) in
+            
+        }
+        
+        self.locationManager.stopUpdatingLocation()
+    }
+}
+
 
 extension MainVC: UICollectionViewDelegate, UICollectionViewDataSource {
     
