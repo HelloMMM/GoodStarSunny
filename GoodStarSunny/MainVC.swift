@@ -10,6 +10,7 @@ import UIKit
 import CoreData
 import AudioToolbox
 import CoreLocation
+import SkeletonView
 
 enum LYFTableViewType {
     case top
@@ -42,6 +43,8 @@ class MainVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        showSkeleton()
         
         navigationController?.navigationBar.tintColor = .white
         let textAttributes = [NSAttributedString.Key.foregroundColor:UIColor.white]
@@ -357,11 +360,30 @@ extension MainVC: CLLocationManagerDelegate {
             let temp = (current["temp"] as! NSNumber).intValue
             self.currnTemp.text = "\(temp)º"
             
+            self.hideSkeleton()
         }) { (error) in
             
         }
         
         self.locationManager.stopUpdatingLocation()
+    }
+    
+    func showSkeleton() {
+        
+        currnPosition.showAnimatedSkeleton()
+        currnTime.showAnimatedGradientSkeleton()
+        currnTemp.showAnimatedGradientSkeleton()
+        currnWeatherImageView.showAnimatedGradientSkeleton()
+        currnWeatherDescription.showAnimatedGradientSkeleton()
+    }
+    
+    func hideSkeleton() {
+        
+        currnPosition.hideSkeleton()
+        currnTime.hideSkeleton()
+        currnTemp.hideSkeleton()
+        currnWeatherImageView.hideSkeleton()
+        currnWeatherDescription.hideSkeleton()
     }
 }
 
@@ -379,17 +401,21 @@ extension MainVC: UICollectionViewDelegate, UICollectionViewDataSource {
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MainCell", for: indexPath) as! MainCell
         
+        cell.showSkeleton()
         cell.isEdit = isEdit
-        cell.name.text = areaData[indexPath.row].value(forKey: "name") as? String
-        cell.area.text = areaData[indexPath.row].value(forKey: "area") as? String
-        dic["name"] = areaData[indexPath.row].value(forKey: "name") as? String
-        dic["area"] = areaData[indexPath.row].value(forKey: "area") as? String
         
         let lat = areaData[indexPath.row].value(forKey: "lat") as! String
         let lon = areaData[indexPath.row].value(forKey: "lon") as! String
         let url = "https://api.openweathermap.org/data/2.5/onecall?lat=\(lat)&lon=\(lon)&apikey=5777a715d3b69dba2f196271765e6404&units=metric&lang=zh_tw"
         
         AlamofireManager.shared.requestAPI(url: url, onSuccess: { (response) in
+            
+            cell.myHideSkeleton()
+            
+            cell.name.text = areaData[indexPath.row].value(forKey: "name") as? String
+            cell.area.text = areaData[indexPath.row].value(forKey: "area") as? String
+            dic["name"] = areaData[indexPath.row].value(forKey: "name") as? String
+            dic["area"] = areaData[indexPath.row].value(forKey: "area") as? String
             
             dic["response"] = response
             self.toDayAreaData["\(indexPath.row)"] = dic

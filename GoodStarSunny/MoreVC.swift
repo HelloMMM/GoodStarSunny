@@ -44,7 +44,7 @@ extension MoreVC: UITableViewDelegate, UITableViewDataSource {
         if indexPath.row == 2 {
             cell.rightText.text = styleNames[appStyle]
         } else if indexPath.row == 3 {
-            cell.rightText.text = "v1.0.0"
+            cell.rightText.text = "v1.0.2"
         } else {
             cell.rightText.text = ""
         }

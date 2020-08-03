@@ -61,9 +61,7 @@ class MainCell: UICollectionViewCell, UIGestureRecognizerDelegate {
         
         menuImageView.alpha = 1
         time.alpha = 0
-        weather.alpha = 0
         temp.alpha = 0
-        weatherImageView.alpha = 0
         
         let shakeAnimation = CABasicAnimation(keyPath: "transform.rotation")
         shakeAnimation.duration = 0.2
@@ -84,9 +82,7 @@ class MainCell: UICollectionViewCell, UIGestureRecognizerDelegate {
         
         menuImageView.alpha = 0
         time.alpha = 1
-        weather.alpha = 1
         temp.alpha = 1
-        weatherImageView.alpha = 1
         
         layer.removeAnimation(forKey: "animate")
     }
@@ -133,5 +129,25 @@ class MainCell: UICollectionViewCell, UIGestureRecognizerDelegate {
     
     override func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
         return abs((pan.velocity(in: pan.view)).x) > abs((pan.velocity(in: pan.view)).y)
+    }
+    
+    func showSkeleton() {
+        
+        name.showAnimatedSkeleton()
+        time.showAnimatedGradientSkeleton()
+        weather.showAnimatedGradientSkeleton()
+        area.showAnimatedGradientSkeleton()
+        weatherImageView.showAnimatedGradientSkeleton()
+        temp.showAnimatedGradientSkeleton()
+    }
+    
+    func myHideSkeleton() {
+        
+        name.hideSkeleton()
+        time.hideSkeleton()
+        weather.hideSkeleton()
+        area.hideSkeleton()
+        weatherImageView.hideSkeleton()
+        temp.hideSkeleton()
     }
 }

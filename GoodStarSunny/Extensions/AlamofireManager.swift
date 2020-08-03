@@ -27,7 +27,7 @@ class AlamofireManager: NSObject {
                 
             case .failure(let error):
                 
-                onError("errorerrorerror: \(error.localizedDescription)")
+                onError("requestError: \(error.localizedDescription)")
             }
         }
     }

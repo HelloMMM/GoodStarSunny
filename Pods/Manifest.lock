@@ -38,6 +38,7 @@ PODS:
   - NVActivityIndicatorView/Presenter (4.8.0)
   - pop (1.0.12)
   - PromisesObjC (1.2.9)
+  - SkeletonView (1.8.7)
 
 DEPENDENCIES:
   - Alamofire
@@ -47,6 +48,7 @@ DEPENDENCIES:
   - IQKeyboardManagerSwift
   - NVActivityIndicatorView (~> 4.8)
   - pop (~> 1.0)
+  - SkeletonView
 
 SPEC REPOS:
   trunk:
@@ -61,6 +63,7 @@ SPEC REPOS:
     - NVActivityIndicatorView
     - pop
     - PromisesObjC
+    - SkeletonView
 
 SPEC CHECKSUMS:
   Alamofire: e911732990610fe89af59ac0077f923d72dc3dfd
@@ -74,7 +77,8 @@ SPEC CHECKSUMS:
   NVActivityIndicatorView: d24b7ebcf80af5dcd994adb650e2b6c93379270f
   pop: d582054913807fd11fd50bfe6a539d91c7e1a55a
   PromisesObjC: b48e0338dbbac2207e611750777895f7a5811b75
+  SkeletonView: ba5370f41280b2f0a76918bb143c1294232bb4f4
 
-PODFILE CHECKSUM: 11a696277a952d9222bc0725315d66cecfd886f3
+PODFILE CHECKSUM: 12b2848231efea61d0f1eb0cbd6ea19bdd8f7d33
 
 COCOAPODS: 1.8.3
