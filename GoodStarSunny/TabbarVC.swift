@@ -9,17 +9,29 @@
 import UIKit
 import ESTabBarController_swift
 import Hero
+import GoogleMobileAds
 
-var tabBarColor: UIColor!
+var tabbarVC: ESTabBarController!
 
-class TabbarVC: ESTabBarController {
+class TabbarVC: ESTabBarController, MoreVCDelegate {
 
+    var interstitial: GADInterstitial!
+    var bannerView: GADBannerView!
     var mainVC: MainVC!
     var addVC: UIViewController!
     var moreVC: MoreVC!
+    var n1: UINavigationController!
+    var n2: UINavigationController!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        interstitial = createAndLoadInterstitial()
+        if !isRemoveAD {
+            addBannerViewToView()
+        }
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(removeAD), name: NSNotification.Name("RemoveAD") , object: nil)
         
         mainVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "MainVC") as? MainVC
         
@@ -27,11 +39,12 @@ class TabbarVC: ESTabBarController {
         addVC.hero.isEnabled = true
         
         moreVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "MoreVC") as? MoreVC
+        moreVC.delegate = self
+        
+        n1 = UINavigationController(rootViewController: mainVC)
+        n2 = UINavigationController(rootViewController: moreVC)
         
         changeStyle(AppStyle(rawValue: appStyle)!)
-        
-        let n1 = UINavigationController(rootViewController: mainVC)
-        let n2 = UINavigationController(rootViewController: moreVC)
         
         viewControllers = [n1, addVC, n2]
         
@@ -46,8 +59,65 @@ class TabbarVC: ESTabBarController {
         didHijackHandler = {
             [weak self] tabbarController, viewController, index in
             
-            
+            self?.addClick()
         }
+        
+        tabbarVC = self
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        
+        if UserDefaults.standard.object(forKey: "firstOpen") == nil {
+            
+            let testVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "TestVC") as! TestVC
+            testVC.testVCDelegate = self
+            present(testVC, animated: true, completion: nil)
+        }
+    }
+    
+    @objc func removeAD(notification: NSNotification) {
+            
+        isRemoveAD = true
+        
+        if bannerView != nil {
+            bannerView.removeFromSuperview()
+        }
+    }
+    
+    func createAndLoadInterstitial() -> GADInterstitial {
+        
+        #if DEBUG
+            interstitial = GADInterstitial(adUnitID: "ca-app-pub-3940256099942544/4411468910")
+        #else
+            interstitial = GADInterstitial(adUnitID: "ca-app-pub-1223027370530841/3525494731")
+        #endif
+        interstitial.delegate = self
+        interstitial.load(GADRequest())
+        
+        return interstitial
+    }
+    
+    func addBannerViewToView() {
+        
+        bannerView = GADBannerView(adSize: kGADAdSizeFullBanner)
+        
+        #if DEBUG
+        bannerView.adUnitID = "ca-app-pub-3940256099942544/2934735716"
+        #else
+        bannerView.adUnitID = "ca-app-pub-1223027370530841/4118227965"
+        #endif
+
+        bannerView.delegate = self
+        bannerView.rootViewController = self
+        bannerView.load(GADRequest())
+        bannerView.translatesAutoresizingMaskIntoConstraints = false
+        
+        view.addSubview(bannerView)
+        bannerView.bottomAnchor.constraint(equalTo: tabBar.topAnchor, constant: 0).isActive = true
+        bannerView.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 0).isActive = true
+        bannerView.rightAnchor.constraint(equalTo: view.rightAnchor, constant: 0).isActive = true
+        
+        view.bringSubviewToFront(tabBar)
     }
     
     func changeStyle(_ style: AppStyle) {
@@ -55,7 +125,7 @@ class TabbarVC: ESTabBarController {
         let exampleIrregularityContentView = ExampleIrregularityContentView()
         exampleIrregularityContentView.imageView.hero.isEnabled = true
         exampleIrregularityContentView.imageView.hero.isEnabledForSubviews = true
-        exampleIrregularityContentView.imageView.hero.id = "ContentView"
+        exampleIrregularityContentView.imageView.hero.id = "AddVC"
         let basicContentView1 = ExampleIrregularityBasicContentView()
         basicContentView1.backdropColor = .clear
         basicContentView1.highlightBackdropColor = .clear
@@ -63,8 +133,7 @@ class TabbarVC: ESTabBarController {
         basicContentView2.backdropColor = .clear
         basicContentView2.highlightBackdropColor = .clear
         
-        var bgColor: UIColor!
-        var basicColor: UIColor!
+        var tabBarColor: UIColor!
         
         switch style {
         case .blue:
@@ -82,6 +151,8 @@ class TabbarVC: ESTabBarController {
         }
         
         tabBar.backgroundColor = tabBarColor
+        n1.navigationBar.barTintColor = tabBarColor
+        n2.navigationBar.barTintColor = tabBarColor
         
         mainVC.view.backgroundColor = bgColor
         moreVC.view.backgroundColor = bgColor
@@ -96,5 +167,87 @@ class TabbarVC: ESTabBarController {
         addVC.tabBarItem = ESTabBarItem(exampleIrregularityContentView, title: nil, image: UIImage(named: "add"), selectedImage: UIImage(named: "add"))
         moreVC.tabBarItem = ESTabBarItem(basicContentView2, title: "更多", image: UIImage(named: "more"), selectedImage: UIImage(named: "more"))
     }
+    
+    func addClick() {
+        
+        let addVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "AddVC") as! AddVC
+        addVC.delegate = self
+        present(addVC, animated: true, completion: nil)
+    }
 }
 
+extension TabbarVC: TestVCDelegate {
+    
+    func enterMain() {
+        
+        addClick()
+    }
+}
+
+extension TabbarVC: AddVCDelegate {
+    
+    func addRegion(_ addressDic: Dictionary<String, Any>) {
+    
+        CoreDataConnect.shared.insert(attributeInfo: addressDic)
+        if CoreDataConnect.shared.retrieve(predicate: nil, sort: nil, limit: nil) != nil {
+            
+            areaData = CoreDataConnect.shared.retrieve(predicate: nil, sort: [["id": true]], limit: nil)!
+        }
+        mainVC.collectionView.reloadData()
+        
+        selectedViewController = viewControllers![0]
+//        selectedIndex = 0
+    }
+}
+
+extension TabbarVC: GADBannerViewDelegate, GADInterstitialDelegate {
+    
+    func interstitialDidReceiveAd(_ ad: GADInterstitial) {
+        
+        if UserDefaults.standard.object(forKey: "firstOpen") != nil {
+            
+            if !isRemoveAD {
+                interstitial.present(fromRootViewController: self)
+            }
+        } else {
+            UserDefaults.standard.set(true, forKey: "firstOpen")
+        }
+    }
+    
+    func interstitialDidDismissScreen(_ ad: GADInterstitial) {
+
+//        interstitial = createAndLoadInterstitial()
+    }
+    
+    func adViewDidReceiveAd(_ bannerView: GADBannerView) {
+      print("adViewDidReceiveAd")
+    }
+
+    /// Tells the delegate an ad request failed.
+    func adView(_ bannerView: GADBannerView,
+        didFailToReceiveAdWithError error: GADRequestError) {
+      print("adView:didFailToReceiveAdWithError: \(error.localizedDescription)")
+    }
+
+    /// Tells the delegate that a full-screen view will be presented in response
+    /// to the user clicking on an ad.
+    func adViewWillPresentScreen(_ bannerView: GADBannerView) {
+      print("adViewWillPresentScreen")
+    }
+
+    /// Tells the delegate that the full-screen view will be dismissed.
+    func adViewWillDismissScreen(_ bannerView: GADBannerView) {
+      print("adViewWillDismissScreen")
+    }
+
+    /// Tells the delegate that the full-screen view has been dismissed.
+    func adViewDidDismissScreen(_ bannerView: GADBannerView) {
+      print("adViewDidDismissScreen")
+    }
+
+    /// Tells the delegate that a user click will open another app (such as
+    /// the App Store), backgrounding the current app.
+    func adViewWillLeaveApplication(_ bannerView: GADBannerView) {
+      print("adViewWillLeaveApplication")
+    }
+}

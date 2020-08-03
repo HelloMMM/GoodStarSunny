@@ -12,6 +12,7 @@ pod 'IQKeyboardManagerSwift'
 pod 'Google-Mobile-Ads-SDK'
 pod 'ESTabBarController-swift'
 pod 'pop', '~> 1.0'
-pod 'NVActivityIndicatorView'
-
+pod 'NVActivityIndicatorView', '~>4.8'
+pod 'Alamofire'
+pod 'SkeletonView'
 end

@@ -1,4 +1,5 @@
 PODS:
+  - Alamofire (5.2.1)
   - ESTabBarController-swift (2.8.0)
   - Google-Mobile-Ads-SDK (7.62.0):
     - GoogleAppMeasurement (~> 6.0)
@@ -32,22 +33,26 @@ PODS:
     - nanopb/encode (= 1.30905.0)
   - nanopb/decode (1.30905.0)
   - nanopb/encode (1.30905.0)
-  - NVActivityIndicatorView (5.0.0):
-    - NVActivityIndicatorView/Base (= 5.0.0)
-  - NVActivityIndicatorView/Base (5.0.0)
+  - NVActivityIndicatorView (4.8.0):
+    - NVActivityIndicatorView/Presenter (= 4.8.0)
+  - NVActivityIndicatorView/Presenter (4.8.0)
   - pop (1.0.12)
   - PromisesObjC (1.2.9)
+  - SkeletonView (1.8.7)
 
 DEPENDENCIES:
+  - Alamofire
   - ESTabBarController-swift
   - Google-Mobile-Ads-SDK
   - Hero
   - IQKeyboardManagerSwift
-  - NVActivityIndicatorView
+  - NVActivityIndicatorView (~> 4.8)
   - pop (~> 1.0)
+  - SkeletonView
 
 SPEC REPOS:
   trunk:
+    - Alamofire
     - ESTabBarController-swift
     - Google-Mobile-Ads-SDK
     - GoogleAppMeasurement
@@ -58,8 +63,10 @@ SPEC REPOS:
     - NVActivityIndicatorView
     - pop
     - PromisesObjC
+    - SkeletonView
 
 SPEC CHECKSUMS:
+  Alamofire: e911732990610fe89af59ac0077f923d72dc3dfd
   ESTabBarController-swift: 05593a6ad64700b03c0eb60ff625916370aa4136
   Google-Mobile-Ads-SDK: c92c27666fbf684c964259785a6b3cdd3068e06f
   GoogleAppMeasurement: 8cd1f289d60e629cf16ab03363b9e89c776b9651
@@ -67,10 +74,11 @@ SPEC CHECKSUMS:
   Hero: b7385b75e7259da62f4f85462f59a5082d66b058
   IQKeyboardManagerSwift: 0fb93310284665245591f50f7a5e38de615960b7
   nanopb: c43f40fadfe79e8b8db116583945847910cbabc9
-  NVActivityIndicatorView: f109ed069924ac1b4adbc1ae9cfaeac0be1d6c2c
+  NVActivityIndicatorView: d24b7ebcf80af5dcd994adb650e2b6c93379270f
   pop: d582054913807fd11fd50bfe6a539d91c7e1a55a
   PromisesObjC: b48e0338dbbac2207e611750777895f7a5811b75
+  SkeletonView: ba5370f41280b2f0a76918bb143c1294232bb4f4
 
-PODFILE CHECKSUM: 3f57122bdfb8a093acb246289cd433068f34ada9
+PODFILE CHECKSUM: 12b2848231efea61d0f1eb0cbd6ea19bdd8f7d33
 
 COCOAPODS: 1.8.3
